@@ -1,9 +1,6 @@
 package com.example.javipercas.endprojectifp;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent help = new Intent(getApplicationContext(), Help.class);
+                Intent help = new Intent(getApplicationContext(), HelpLost.class);
                 startActivity(help);
             }
         });
