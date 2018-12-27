@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn">
+    tools:context=".edit_profile">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -53,27 +53,10 @@
                     android:textColor="@android:color/white" />
 
                 <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="40dp"
-                    android:text="Nombre de usuario"
-                    android:textColor="@android:color/black" />
-
-                <EditText
-                    android:id="@+id/etUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:selectAllOnFocus="false"
-                    android:textColorLink="@color/colorAccent" />
-
-                <TextView
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="30dp"
+                    android:paddingTop="40dp"
                     android:text="Nombre"
                     android:textColor="@android:color/black" />
 
@@ -164,7 +147,7 @@
                 <Button
                     android:id="@+id/idSave"
                     android:layout_width="150dp"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="40dp"

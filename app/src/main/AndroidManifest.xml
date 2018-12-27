@@ -20,7 +20,10 @@
         <activity
             android:name=".Help"
             android:label="@string/title_activity_help"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".edit_profile" />
+        <activity android:name=".show_profile" />
+        <activity android:name=".change_password"></activity>
     </application>
 
 </manifest>
