@@ -6,14 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/navLost"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/magnifier"
             android:title="Mascotas perdidas" />
         <item
             android:id="@+id/navFound"
+            android:icon="@drawable/magnifier"
             android:title="Mascotas encontradas" />
         <item
             android:id="@+id/navInteresPoints"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/placeholder"
             android:title="Puntos de interés" />
     </group>
 
@@ -21,11 +22,11 @@
         <menu>
             <item
                 android:id="@+id/navProfile"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/user"
                 android:title="Perfil" />
             <item
                 android:id="@+id/navLogOut"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/logout"
                 android:title="Cerrar sesión" />
         </menu>
     </item>
