@@ -18,12 +18,12 @@
         </activity>
         <activity android:name=".SignIn" />
         <activity
-            android:name=".HelpLost"
+            android:name=".Help_lost"
             android:label="@string/title_activity_help"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".edit_profile" />
-        <activity android:name=".show_profile" />
-        <activity android:name=".change_password"></activity>
+        <activity android:name=".Edit_profile" />
+        <activity android:name=".Show_profile" />
+        <activity android:name=".Change_password" />
     </application>
 
 </manifest>

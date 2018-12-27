@@ -1,5 +1,6 @@
 package com.example.javipercas.endprojectifp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,13 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class HelpLost extends AppCompatActivity
+public class Help_lost extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_helplost);
+        setContentView(R.layout.activity_help_lost);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -46,15 +47,22 @@ public class HelpLost extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.navLost) {
+            Intent help = new Intent(getApplicationContext(), Help_lost.class);
+            startActivity(help);
 
         } else if (id == R.id.navFound) {
 
+
         } else if (id == R.id.navInteresPoints) {
 
+
         } else if (id == R.id.navProfile) {
+            Intent showProfile = new Intent(getApplicationContext(), Show_profile.class);
+            startActivity(showProfile);
 
         } else if (id == R.id.navLogOut) {
-
+            Intent main = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(main);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

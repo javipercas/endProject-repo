@@ -3,7 +3,7 @@ package com.example.javipercas.endprojectifp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class edit_profile extends AppCompatActivity {
+public class Edit_profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

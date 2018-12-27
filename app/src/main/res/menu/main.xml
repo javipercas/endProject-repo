@@ -4,5 +4,12 @@
     <item
         android:id="@+id/btChangePassword"
         android:icon="@drawable/key"
-        android:title=""/>
+        android:title="Cambiar contraseña"
+        android:showAsAction="always" />
+
+    <item
+        android:id="@+id/btEditProfile"
+        android:icon="@drawable/editar"
+        android:showAsAction="always"
+        android:title="Editar perfil" />
 </menu>
