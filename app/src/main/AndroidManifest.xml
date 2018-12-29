@@ -18,12 +18,20 @@
         </activity>
         <activity android:name=".SignIn" />
         <activity
-            android:name=".Help_lost"
+            android:name=".HelpLost"
             android:label="@string/title_activity_help"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Edit_profile" />
-        <activity android:name=".Show_profile" />
-        <activity android:name=".Change_password" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ShowProfile" />
+        <activity android:name=".ChangePassword" />
+        <activity
+            android:name=".HelpFound"
+            android:label="@string/title_activity_help_found"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".InteresPoints"
+            android:label="@string/title_activity_interes_points"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

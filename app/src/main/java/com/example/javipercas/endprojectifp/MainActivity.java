@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent help = new Intent(getApplicationContext(), Help_lost.class);
+                Intent help = new Intent(getApplicationContext(), HelpLost.class);
                 startActivity(help);
             }
         });

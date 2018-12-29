@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Show_profile extends AppCompatActivity {
+public class ShowProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,11 @@ public class Show_profile extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.btChangePassword:
-                Intent changePassword = new Intent(getApplicationContext(), Change_password.class);
+                Intent changePassword = new Intent(getApplicationContext(), ChangePassword.class);
                 startActivity(changePassword);
                 return true;
             case R.id.btEditProfile:
-                Intent editProfile = new Intent(getApplicationContext(), Edit_profile.class);
+                Intent editProfile = new Intent(getApplicationContext(), EditProfile.class);
                 startActivity(editProfile);
                 return true;
             default:
