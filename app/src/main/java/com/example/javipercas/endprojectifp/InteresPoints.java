@@ -47,34 +47,6 @@ public class InteresPoints extends FragmentActivity implements OnMapReadyCallbac
         inflater.inflate(R.menu.activity_help_found_drawer, menu);  // Use filter.xml from step 1
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.navLost) {
-            Intent helpLost = new Intent(getApplicationContext(), HelpLost.class);
-            startActivity(helpLost);
-
-        } else if (id == R.id.navFound) {
-            Intent helpFound = new Intent(getApplicationContext(), HelpFound.class);
-            startActivity(helpFound);
-
-        } else if (id == R.id.navInteresPoints) {
-            Intent points = new Intent(getApplicationContext(), InteresPoints.class);
-            startActivity(points);
-
-        } else if (id == R.id.navProfile) {
-            Intent showProfile = new Intent(getApplicationContext(), ShowProfile.class);
-            startActivity(showProfile);
-
-        } else if (id == R.id.navLogOut) {
-            Intent main = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(main);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
