@@ -55,8 +55,8 @@ public class HelpLost extends AppCompatActivity
             startActivity(helpFound);
 
         } else if (id == R.id.navInteresPoints) {
-            Intent interesPoints = new Intent(getApplicationContext(), InteresPoints.class);
-            startActivity(interesPoints);
+            Intent points = new Intent(getApplicationContext(), InteresPoints.class);
+            startActivity(points);
 
         } else if (id == R.id.navProfile) {
             Intent showProfile = new Intent(getApplicationContext(), ShowProfile.class);
