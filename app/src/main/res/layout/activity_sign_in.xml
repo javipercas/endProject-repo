@@ -50,14 +50,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="40dp"
-                    android:text="Nombre de usuario"
+                    android:text="Nombre de usuario*"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etUser"
+                    android:id="@+id/etSignInUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/common_google_signin_btn_text_dark_default"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textColorLink="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Contraseña*"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/etSignInPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textColorLink="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/textViewRepeatPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Repetir contraseña*"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/etSignInRepeatPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
@@ -68,11 +104,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Nombre"
+                    android:text="Nombre*"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etName"
+                    android:id="@+id/etSignInName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
@@ -86,11 +122,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Apellidos"
+                    android:text="Apellidos*"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etSecondName"
+                    android:id="@+id/etSignInSecondName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
@@ -99,32 +135,15 @@
                     android:padding="5dp" />
 
                 <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:text="Fecha de nacimiento"
-                    android:textColor="@android:color/black" />
-
-                <EditText
-                    android:id="@+id/etDateBirthdate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:ems="10"
-                    android:inputType="date"
-                    android:padding="5dp" />
-
-                <TextView
                     android:id="@+id/tvPoblacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Población"
+                    android:text="Población*"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etPoblacion"
+                    android:id="@+id/etSignInPoblacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
@@ -137,11 +156,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Correo electrónico"
+                    android:text="Correo electrónico*"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etSignInEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
@@ -154,12 +173,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Teléfono"
+                    android:text="Teléfono*"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/appColorPrimary" />
 
                 <EditText
-                    android:id="@+id/etPhone"
+                    android:id="@+id/etSignInPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"

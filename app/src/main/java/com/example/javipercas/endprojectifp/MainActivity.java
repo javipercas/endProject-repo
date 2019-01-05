@@ -1,17 +1,24 @@
 package com.example.javipercas.endprojectifp;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.javipercas.endprojectifp.Utils.DataBase;
+import com.example.javipercas.endprojectifp.Utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btSignIn, btLogin;
+    private Button btSignIn, btLogin;
+    private EditText etUsername, etPassword;
+    private Cursor query;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +26,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DataBase database = new DataBase(this);
-        SQLiteDatabase db = database.getWritableDatabase();
-        System.out.println("Se tiene que ejecutar ahorq");
-        if (db != null) {
-            System.out.println("PORFIIIIIIIIIINNNNNNNNNN");
-        } else {
-            System.out.println("puta bida no se ha ejecutado :(");
-        }
+        db = database.getWritableDatabase();
 
-//        ConnectionSQLite con = new ConnectionSQLite(this, "EndProject", null, 1)
         btSignIn = (Button) findViewById(R.id.btSignIn);
         btLogin = (Button) findViewById(R.id.btLogin);
+        etPassword = (EditText) findViewById(R.id.etMainPassword);
+        etUsername = (EditText) findViewById(R.id.etMainUsername);
 
         btSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,10 +43,37 @@ public class MainActivity extends AppCompatActivity {
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { ;
-                Intent help = new Intent(getApplicationContext(), HelpLost.class);
-                startActivity(help);
+            public void onClick(View v) {
 
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+
+                if (username != "" && password != "") {
+                    Cursor cursor = db.rawQuery("SELECT USERNAME,PASSWORD " +
+                            "FROM USERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" +
+                            password + "'", null);
+
+                    if (cursor.moveToFirst() == true) {
+                        String user = cursor.getString(0).toLowerCase();
+                        String pass = cursor.getString(1);
+
+                        if (username.toLowerCase().equalsIgnoreCase(user) && password.equals(pass)) {
+
+                            Intent helpLost = new Intent(MainActivity.this, HelpLost.class);
+                            helpLost.putExtra("loginUser", username);
+                            startActivity(helpLost);
+
+                            etUsername.setText("");
+                            etPassword.setText("");
+                        }
+                    } else {
+                        Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                        etPassword.setText("");
+
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "Introduce usuario y contraseña", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

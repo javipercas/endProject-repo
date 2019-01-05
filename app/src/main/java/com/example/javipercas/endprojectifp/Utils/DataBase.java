@@ -52,41 +52,36 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + Tables.USERS_TABLE + " (\n" +
-                Users.USERS_ID + " INTEGER PRIMARY KEY NOT NULL,\n" +
                 Users.USERS_USERNAME + " TEXT  NOT NULL,\n" +
                 Users.USERS_PASSWORD + " TEXT NOT NULL,\n" +
                 Users.USERS_EMAIL + " TEXT NOT NULL)");
 
         db.execSQL("CREATE TABLE " + Tables.USERS_PROFILE_TABLE + " (\n" +
-                UsersProfile.USERS_PROFILE_ID + " INTEGER PRIMARY KEY NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_NAME  + " TEXT NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_SECOND_NAME + " TEXT NOT NULL,\n" +
-                UsersProfile.USERS_PROFILE_BRITH_DATE + " DATE DEFAULT NULL,\n" +
                 UsersProfile.USERS_PROFILE_CITY + " TEXT NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_PHONE + " INTEGER NOT NULL,\n" +
-                UsersProfile.USERS_PROFILE_USER_ID + " INTEGER NOT NULL," +
-                " FOREIGN KEY (" + UsersProfile.USERS_PROFILE_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
+                UsersProfile.USERS_PROFILE_USER_EMAIL + " INTEGER NOT NULL," +
+                " FOREIGN KEY (" + UsersProfile.USERS_PROFILE_USER_EMAIL + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
 
         db.execSQL("CREATE TABLE " + Tables.PETS_TABLE + " (\n" +
-                Pets.PETS_ID + " INTEGER NOT NULL,\n" +
                 Pets.PETS_NAME + " TEXT NOT NULL,\n" +
-                Pets.PETS_BRITH_DATE + " DATE DEFAULT NULL,\n" +
+                Pets.PETS_AGE+ " INTEGER DEFAULT NULL,\n" +
                 Pets.PETS_SEX + " NUMERIC NOT NULL,\n" +
                 Pets.PETS_STERILIZED + " NUMERIC DEFAULT NULL,\n" +
                 Pets.PETS_RACE + " TEXT NOT NULL,\n" +
                 Pets.PETS_COLOR + " TEXT DEFAULT NULL,\n" +
                 Pets.PETS_CHARACTER + " TEXT DEFAULT NULL,\n" +
-                Pets.PETS_USER_ID + " iINTEGER NOT NULL, \n" +
-                " FOREIGN KEY (" + Pets.PETS_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
+                Pets.PETS_USER_EMAIL + " iINTEGER NOT NULL, \n" +
+                " FOREIGN KEY (" + Pets.PETS_USER_EMAIL + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
 
         db.execSQL("CREATE TABLE `interes_points` (\n" +
-                InteresPoints.INTERES_ID + " INTEGER NOT NULL,\n" +
                 InteresPoints.INTERES_NAME + " TEXT NOT NULL,\n" +
                 InteresPoints.INTERES_DESCRIPTION + " TEXT DEFAULT NULL,\n" +
                 InteresPoints.INTERES_ADDRESS + " TEXT NOT NULL,\n" +
                 InteresPoints.INTERES_PHONE + " INTEGER DEFAULT NULL, \n" +
-                InteresPoints.INTERES_USER_ID + " INTEGER NOT NULL, \n" +
-                " FOREIGN KEY (" + InteresPoints.INTERES_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
+                InteresPoints.INTERES_USER_EMAIL + " INTEGER NOT NULL, \n" +
+                " FOREIGN KEY (" + InteresPoints.INTERES_USER_EMAIL + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
     }
 
     @Override
@@ -96,6 +91,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Tables.PETS_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Tables.INTERES_TABLE);
     }
+
+
 
 }
 

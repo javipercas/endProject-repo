@@ -27,12 +27,11 @@
                 android:textColor="@android:color/black" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/etMainUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:hint="Email"
                 android:inputType="textPersonName"
                 android:paddingTop="10dp" />
 
@@ -45,12 +44,11 @@
                 android:textColor="@android:color/black" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/etMainPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 android:ems="10"
-                android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingTop="10dp" />
 
