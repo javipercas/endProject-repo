@@ -15,8 +15,9 @@ import com.example.javipercas.endprojectifp.Utils.DataBase;
 public class ShowProfile extends AppCompatActivity {
 
     EditText etUsername, etName, etSeccondName, etCity, etEmail, etPhone;
-    String loginUser;
     SQLiteDatabase db;
+    String idUser;
+    int idUserLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,14 @@ public class ShowProfile extends AppCompatActivity {
         DataBase database = new DataBase(this);
         db = database.getWritableDatabase();
 
-        loginUser = getIntent().getStringExtra("loginUser");
+        Intent intent = getIntent();
+        idUser = intent.getStringExtra("idUserLogin");
+        idUserLogin = Integer.parseInt(idUser);
 
         etUsername = (EditText)findViewById(R.id.etShowUser);
         etName = (EditText)findViewById(R.id.etShowName);
         etSeccondName = (EditText)findViewById(R.id.etShowSecondName);
+        etEmail = (EditText)findViewById(R.id.etShowEmail);
         etCity = (EditText)findViewById(R.id.etShowPoblacion);
         etPhone = (EditText)findViewById(R.id.etShowPhone);
 
@@ -42,9 +46,9 @@ public class ShowProfile extends AppCompatActivity {
         etPhone.setFocusable(false);
 
         try {
-            Cursor cursor = db.rawQuery("SELECT u.USERNAME, up.NAME, up.SECOND_NAME, up.CITY, u.EMAIL, up.PHONE " +
-                    "FROM USERS AS u INNER JOIN USERS_PROFILE AS up ON u.USERNAME = up.USERNAME WHERE USERNAME = '" +
-                    loginUser + "'", null);
+            Cursor cursor = db.rawQuery("SELECT u.USERNAME, up.NAME, up.SECOND_NAME, up.CITY, u.EMAIL, up.PHONE, u.ID " +
+                    "FROM USERS AS u INNER JOIN USERS_PROFILE AS up ON u.ID = up.USER_ID WHERE u.ID = '" +
+                    idUserLogin + "'", null);
 
             if (cursor.moveToFirst() == true) {
                 String cursorUsername = cursor.getString(0).toLowerCase();
@@ -53,8 +57,9 @@ public class ShowProfile extends AppCompatActivity {
                 String cursorCity = cursor.getString(3);
                 String cursorEmail = cursor.getString(4);
                 String cursorPhone = cursor.getString(5);
+                int cursorUserId = Integer.parseInt(cursor.getString(6));
 
-                if (loginUser.toLowerCase().equalsIgnoreCase(cursorUsername)) {
+                if (idUserLogin == cursorUserId) {
                     etUsername.setText(cursorUsername);
                     etName.setText(cursorName);
                     etSeccondName.setText(cursorSecondName);
@@ -80,12 +85,12 @@ public class ShowProfile extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.btChangePassword:
                 Intent changePassword = new Intent(getApplicationContext(), ChangePassword.class);
-                changePassword.putExtra("loginUser", loginUser);
+                changePassword.putExtra("idUserLogin", idUserLogin + "");
                 startActivity(changePassword);
                 return true;
             case R.id.btEditProfile:
                 Intent editProfile = new Intent(getApplicationContext(), EditProfile.class);
-                editProfile.putExtra("loginUser", loginUser);
+                editProfile.putExtra("idUserLogin", idUserLogin + "");
                 startActivity(editProfile);
                 return true;
             default:

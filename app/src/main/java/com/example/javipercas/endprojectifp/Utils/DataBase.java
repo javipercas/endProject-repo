@@ -52,19 +52,22 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + Tables.USERS_TABLE + " (\n" +
-                Users.USERS_USERNAME + " TEXT  NOT NULL,\n" +
+                Users.USERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
+                Users.USERS_USERNAME + " TEXT UNIQUE NOT NULL,\n" +
                 Users.USERS_PASSWORD + " TEXT NOT NULL,\n" +
-                Users.USERS_EMAIL + " TEXT NOT NULL)");
+                Users.USERS_EMAIL + " TEXT UNIQUE NOT NULL)");
 
         db.execSQL("CREATE TABLE " + Tables.USERS_PROFILE_TABLE + " (\n" +
+                UsersProfile.USERS_PROFILE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_NAME  + " TEXT NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_SECOND_NAME + " TEXT NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_CITY + " TEXT NOT NULL,\n" +
                 UsersProfile.USERS_PROFILE_PHONE + " INTEGER NOT NULL,\n" +
-                UsersProfile.USERS_PROFILE_USER_EMAIL + " INTEGER NOT NULL," +
-                " FOREIGN KEY (" + UsersProfile.USERS_PROFILE_USER_EMAIL + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
+                UsersProfile.USERS_USER_ID + " INTEGER UNIQUE NOT NULL," +
+                " FOREIGN KEY (" + UsersProfile.USERS_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
 
         db.execSQL("CREATE TABLE " + Tables.PETS_TABLE + " (\n" +
+                Pets.PETS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
                 Pets.PETS_NAME + " TEXT NOT NULL,\n" +
                 Pets.PETS_AGE+ " INTEGER DEFAULT NULL,\n" +
                 Pets.PETS_SEX + " NUMERIC NOT NULL,\n" +
@@ -72,16 +75,17 @@ public class DataBase extends SQLiteOpenHelper {
                 Pets.PETS_RACE + " TEXT NOT NULL,\n" +
                 Pets.PETS_COLOR + " TEXT DEFAULT NULL,\n" +
                 Pets.PETS_CHARACTER + " TEXT DEFAULT NULL,\n" +
-                Pets.PETS_USER_EMAIL + " iINTEGER NOT NULL, \n" +
-                " FOREIGN KEY (" + Pets.PETS_USER_EMAIL + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
+                Pets.PETS_USER_ID + " iINTEGER NOT NULL, \n" +
+                " FOREIGN KEY (" + Pets.PETS_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
 
         db.execSQL("CREATE TABLE `interes_points` (\n" +
+                InteresPoints.INTERES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
                 InteresPoints.INTERES_NAME + " TEXT NOT NULL,\n" +
                 InteresPoints.INTERES_DESCRIPTION + " TEXT DEFAULT NULL,\n" +
                 InteresPoints.INTERES_ADDRESS + " TEXT NOT NULL,\n" +
                 InteresPoints.INTERES_PHONE + " INTEGER DEFAULT NULL, \n" +
-                InteresPoints.INTERES_USER_EMAIL + " INTEGER NOT NULL, \n" +
-                " FOREIGN KEY (" + InteresPoints.INTERES_USER_EMAIL + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
+                InteresPoints.INTERES_USER_ID + " INTEGER NOT NULL, \n" +
+                " FOREIGN KEY (" + InteresPoints.INTERES_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
     }
 
     @Override

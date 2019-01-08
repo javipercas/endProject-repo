@@ -13,7 +13,8 @@ import android.view.MenuItem;
 public class HelpLost extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String loginUser;
+    String idUser;
+    int idUserLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +22,10 @@ public class HelpLost extends AppCompatActivity
         setContentView(R.layout.activity_help_lost);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+        idUser = intent.getStringExtra("idUserLogin");
+        idUserLogin = Integer.parseInt(idUser);
 
-        loginUser = getIntent().getStringExtra("loginUser");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -64,7 +67,7 @@ public class HelpLost extends AppCompatActivity
 
         } else if (id == R.id.navProfile) {
             Intent showProfile = new Intent(getApplicationContext(), ShowProfile.class);
-            showProfile.putExtra("loginUser", loginUser);
+            showProfile.putExtra("idUserLogin", idUserLogin + "");
             startActivity(showProfile);
 
         } else if (id == R.id.navLogOut) {

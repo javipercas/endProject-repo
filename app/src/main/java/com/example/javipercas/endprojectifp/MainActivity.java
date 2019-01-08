@@ -57,10 +57,11 @@ public class MainActivity extends AppCompatActivity {
                         String user = cursor.getString(0).toLowerCase();
                         String pass = cursor.getString(1);
 
-                        if (username.toLowerCase().equalsIgnoreCase(user) && password.equals(pass)) {
+                        int loginId = findByUsername(username);
 
+                        if (username.toLowerCase().equalsIgnoreCase(user) && password.equals(pass) && loginId != -1) {
                             Intent helpLost = new Intent(MainActivity.this, HelpLost.class);
-                            helpLost.putExtra("loginUser", username);
+                            helpLost.putExtra("idUserLogin", loginId + "");
                             startActivity(helpLost);
 
                             etUsername.setText("");
@@ -76,5 +77,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private int findByUsername(String username) {
+
+        int id = -1;
+
+        Cursor cursor = db.rawQuery("SELECT ID " +
+                "FROM USERS WHERE USERNAME = '" + username + "'", null);
+
+        if (cursor.moveToFirst() == true) {
+            String userId = cursor.getString(0);
+            id = Integer.parseInt(userId);
+        }
+
+        return id;
     }
 }

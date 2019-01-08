@@ -56,11 +56,8 @@ public class SignIn extends AppCompatActivity {
                     try {
                         insertUsers(username, password, email);
 
-                        boolean createUser = true;
-
-                        if (createUser) {
-                            insertUsersProfile(name, secondName, city, phone, email);
-                        }
+                        int id = findByUsername(username);
+                        insertUsersProfile(name, secondName, city, phone, id);
 
                         Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(mainActivity);
@@ -94,7 +91,7 @@ public class SignIn extends AppCompatActivity {
         }
     }
 
-    private boolean insertUsersProfile(String name, String secondName, String city, String phone, String email) {
+    private boolean insertUsersProfile(String name, String secondName, String city, String phone, int userId) {
         DataBase database = new DataBase(this);
         db = database.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -103,7 +100,7 @@ public class SignIn extends AppCompatActivity {
         contentValues.put(Utils.UsersProfile.USERS_PROFILE_SECOND_NAME, secondName);
         contentValues.put(Utils.UsersProfile.USERS_PROFILE_CITY, city);
         contentValues.put(Utils.UsersProfile.USERS_PROFILE_PHONE, numPhone);
-        contentValues.put(Utils.UsersProfile.USERS_PROFILE_USER_EMAIL, email);
+        contentValues.put(Utils.UsersProfile.USERS_USER_ID, userId);
 
         long result = db.insert("USERS_PROFILE", null, contentValues);
 
@@ -112,5 +109,20 @@ public class SignIn extends AppCompatActivity {
         } else {
             return true;
         }
+    }
+
+    private int findByUsername(String username) {
+
+        int id = -1;
+
+        Cursor cursor = db.rawQuery("SELECT ID " +
+                "FROM USERS WHERE USERNAME = '" + username + "'", null);
+
+        if (cursor.moveToFirst() == true) {
+            String userId = cursor.getString(0);
+            id = Integer.parseInt(userId);
+        }
+
+        return id;
     }
 }
