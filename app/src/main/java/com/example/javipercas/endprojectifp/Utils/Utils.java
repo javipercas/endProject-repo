@@ -46,6 +46,17 @@ public class Utils {
         public static final String INTERES_USER_ID = "USER_ID";
     }
 
+    //Constantes columnas tabla Posts
+    interface columnsPosts {
+        public static final String POSTS_ID = "ID";
+        public static final String POSTS_TITLE = "TITLE";
+        public static final String POSTS_DESCRIPTION = "DESCRIPTION";
+        public static final String POSTS_CREATE_DATE = "CREATE_DATE";
+        public static final String POSTS_VISIBLE = "VISIBLE";
+        public static final String POSTS_TYPE = "TYPE";
+        public static final String POSTS_USER_ID = "USER_ID";
+    }
+
     public static class Users implements columnsUser {
         public static String generateIdUser() {
             return "U-" + UUID.randomUUID().toString();
@@ -67,6 +78,12 @@ public class Utils {
     public static class InteresPoints implements columnsInteresPoints {
         public static String generateIdInteresPoints() {
             return "IP-" + UUID.randomUUID().toString();
+        }
+    }
+
+    public static class Posts implements columnsPosts {
+        public static String generateIdPosts() {
+            return "PO-" + UUID.randomUUID().toString();
         }
     }
 }

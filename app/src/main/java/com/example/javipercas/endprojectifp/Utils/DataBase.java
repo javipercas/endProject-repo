@@ -21,16 +21,8 @@ public class DataBase extends SQLiteOpenHelper {
         String USERS_PROFILE_TABLE = "USERS_PROFILE";
         String PETS_TABLE = "PETS";
         String INTERES_TABLE = "INTERES_POINTS";
+        String POSTS_TABLE = "POSTS";
     }
-
-    /*
-    interface References {
-        String ID_USERS  = String.format("REFERENCES %s(%s) ON DELETE CASCADE", Tables.USERS_TABLE, Users.USERS_ID);
-        String ID_USERS_PROFILE = String.format("REFERENCES %s(%s)", Tables.USERS_PROFILE_TABLE, UsersProfile.USERS_ID);
-        String ID_PETS = String.format("REFERENCES %s(%s)", Tables.PETS_TABLE, Pets.USERS_ID);
-        String ID_INTERES_POINTS = String.format("REFERENCES %s(%s)", Tables.INTERES_TABLE, InteresPoints.USERS_ID);
-    }
-    */
 
     public DataBase(Context context) {
         super(context, DATA_BASE_NAME, null, ACTUAL_VERSION);
@@ -78,7 +70,7 @@ public class DataBase extends SQLiteOpenHelper {
                 Pets.PETS_USER_ID + " iINTEGER NOT NULL, \n" +
                 " FOREIGN KEY (" + Pets.PETS_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
 
-        db.execSQL("CREATE TABLE `interes_points` (\n" +
+        db.execSQL("CREATE TABLE " + Tables.INTERES_TABLE + " (\n" +
                 InteresPoints.INTERES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
                 InteresPoints.INTERES_NAME + " TEXT NOT NULL,\n" +
                 InteresPoints.INTERES_DESCRIPTION + " TEXT DEFAULT NULL,\n" +
@@ -86,6 +78,22 @@ public class DataBase extends SQLiteOpenHelper {
                 InteresPoints.INTERES_PHONE + " INTEGER DEFAULT NULL, \n" +
                 InteresPoints.INTERES_USER_ID + " INTEGER NOT NULL, \n" +
                 " FOREIGN KEY (" + InteresPoints.INTERES_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_EMAIL + "));");
+
+        db.execSQL("CREATE TABLE " + Tables.POSTS_TABLE + " (\n" +
+                Posts.POSTS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\n" +
+                Posts.POSTS_TITLE + " TEXT NOT NULL,\n" +
+                Posts.POSTS_DESCRIPTION + " TEXT DEFAULT NULL,\n" +
+                Posts.POSTS_CREATE_DATE + " TEXT NOT NULL,\n" +
+                Posts.POSTS_VISIBLE + " INTEGER DEFAULT NULL,\n" +
+                Posts.POSTS_TYPE + " INTEGER NOT NULL,\n" +
+                Posts.POSTS_USER_ID + " INTEGER NOT NULL,\n" +
+                " FOREIGN KEY (" + Posts.POSTS_USER_ID + ") REFERENCES " + Tables.USERS_TABLE + "(" + Users.USERS_ID + "));");
+
+
+        db.execSQL("INSERT INTO USERS (USERNAME, PASSWORD, EMAIL) VALUES ('admin', '12345', 'admin@javipercas.com')");
+        db.execSQL("INSERT INTO USERS_PROFILE (NAME, SECOND_NAME, CITY, PHONE, USER_ID) VALUES ('Cuenta', 'De Pruebas', 'Barcelona', 666777888, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Barcelona..', '2019-01-15 09:10:08', 1, 0, 1)");
+
     }
 
     @Override
@@ -94,6 +102,8 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Tables.USERS_PROFILE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Tables.PETS_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + Tables.INTERES_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + Tables.POSTS_TABLE);
+
     }
 
 

@@ -55,14 +55,17 @@ public class HelpLost extends AppCompatActivity
 
         if (id == R.id.navLost) {
             Intent helpLost = new Intent(getApplicationContext(), HelpLost.class);
+            helpLost.putExtra("idUserLogin", idUserLogin + "");
             startActivity(helpLost);
 
         } else if (id == R.id.navFound) {
             Intent helpFound = new Intent(getApplicationContext(), HelpFound.class);
+            helpFound.putExtra("idUserLogin", idUserLogin + "");
             startActivity(helpFound);
 
         } else if (id == R.id.navInteresPoints) {
             Intent points = new Intent(getApplicationContext(), InteresPoints.class);
+            points.putExtra("idUserLogin", idUserLogin + "");
             startActivity(points);
 
         } else if (id == R.id.navProfile) {
