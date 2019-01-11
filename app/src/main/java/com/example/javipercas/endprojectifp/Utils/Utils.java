@@ -48,7 +48,7 @@ public class Utils {
 
     //Constantes columnas tabla Posts
     interface columnsPosts {
-        public static final String POSTS_ID = "ID";
+        public static final String POSTS_ID = "_id";
         public static final String POSTS_TITLE = "TITLE";
         public static final String POSTS_DESCRIPTION = "DESCRIPTION";
         public static final String POSTS_CREATE_DATE = "CREATE_DATE";
