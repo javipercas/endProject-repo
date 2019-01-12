@@ -39,8 +39,10 @@ tools:openDrawer="start">
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Página en construcción" />
+                android:layout_marginTop="70dp"
+                android:text="Página en construcción"
+                android:textAlignment="center"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused" />
         </LinearLayout>
     </ScrollView>
 
