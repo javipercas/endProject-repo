@@ -10,7 +10,7 @@
     <string name="title_activity_help_found">HelpFound</string>
     <string name="title_activity_interes_points">InteresPoints</string>
     <string name="title_activity_delelte">Delelte</string>
-    
+
     <string-array name="type">
         <item>Mascota perdida</item>
         <item>Mascota encontrada</item>

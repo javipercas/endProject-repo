@@ -52,7 +52,8 @@
         <activity
             android:name=".InteresPoints"
             android:label="@string/title_activity_interes_points" />
-        <activity android:name=".CreatePost"></activity>
+        <activity android:name=".CreatePost" />
+        <activity android:name=".CreatePets"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.javipercas.endprojectifp;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.javipercas.endprojectifp.Utils.DataBase;
+import com.example.javipercas.endprojectifp.Utils.Utils;
 
 public class CreatePost extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -47,6 +49,8 @@ public class CreatePost extends AppCompatActivity implements AdapterView.OnItemS
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                etDescription.setText("");
+                etTitle.setText("");
                 Intent helpLost = new Intent(CreatePost.this, HelpLost.class);
                 helpLost.putExtra("idUserLogin", idUserLogin + "");
                 startActivity(helpLost);
@@ -56,6 +60,13 @@ public class CreatePost extends AppCompatActivity implements AdapterView.OnItemS
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String description = etDescription.getText().toString();
+                String title = etTitle.getText().toString();
+
+                int type = spType.getSelectedItemPosition();
+
+                insertPost(title, description, type, idUserLogin);
+
                 Intent helpLost = new Intent(CreatePost.this, HelpLost.class);
                 helpLost.putExtra("idUserLogin", idUserLogin + "");
                 startActivity(helpLost);
@@ -73,5 +84,24 @@ public class CreatePost extends AppCompatActivity implements AdapterView.OnItemS
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private boolean insertPost(String title, String description, int type , int userId) {
+        DataBase database = new DataBase(this);
+        db = database.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Utils.Posts.POSTS_TITLE, title);
+        contentValues.put(Utils.Posts.POSTS_DESCRIPTION, description);
+        contentValues.put(Utils.Posts.POSTS_VISIBLE, 1);
+        contentValues.put(Utils.Posts.POSTS_TYPE, type);
+        contentValues.put(Utils.Posts.POSTS_USER_ID, userId);
+
+        long result = db.insert("POSTS", null, contentValues);
+
+        if(result == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
