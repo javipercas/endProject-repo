@@ -77,9 +77,10 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:padding="5dp"
-                    android:textColorLink="@color/colorAccent" />
+                    android:textColorLink="@color/colorAccent"
+                    />
 
                 <TextView
                     android:id="@+id/textViewRepeatPassword"
@@ -95,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:padding="5dp"
                     android:textColorLink="@color/colorAccent" />
 

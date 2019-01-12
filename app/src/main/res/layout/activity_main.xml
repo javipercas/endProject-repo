@@ -23,7 +23,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Usuario o correo electrónico"
+                android:text="Usuario"
                 android:textColor="@android:color/black" />
 
             <EditText
@@ -57,7 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Recordar contraseña" />
+                android:text="Recordar contraseña"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -65,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Recuperar usuario/contraseña"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/btLogin"

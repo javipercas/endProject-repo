@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -60,6 +62,16 @@ public class HelpLost extends AppCompatActivity
 
         adapter = new SimpleCursorAdapter(this, R.layout.list_posts, cursor, campos, ids);
         listViewLost.setAdapter(adapter);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addPost = new Intent(HelpLost.this, CreatePost.class);
+                addPost.putExtra("idUserLogin", idUserLogin + "");
+                startActivity(addPost);
+            }
+        });
     }
 
     @Override

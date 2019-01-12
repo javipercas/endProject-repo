@@ -1,6 +1,8 @@
 package com.example.javipercas.endprojectifp;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,9 +15,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+
+import com.example.javipercas.endprojectifp.Utils.DataBase;
 
 public class HelpFound extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ListView listViewFound;
+    SimpleCursorAdapter adapter;
+    SQLiteDatabase db;
+    String idUser;
+    int idUserLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +35,15 @@ public class HelpFound extends AppCompatActivity
         setContentView(R.layout.activity_help_found);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        idUser = intent.getStringExtra("idUserLogin");
+        idUserLogin = Integer.parseInt(idUser);
+
+        DataBase database = new DataBase(this);
+        db = database.getWritableDatabase();
+
+        listViewFound = (ListView)findViewById(R.id.lvFound);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -32,6 +53,24 @@ public class HelpFound extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Cursor cursor = db.rawQuery("SELECT _id, TITLE, DESCRIPTION, CREATE_DATE FROM POSTS WHERE VISIBLE = 1 AND TYPE = 1", null);
+
+        String[] campos = {"TITLE", "DESCRIPTION", "CREATE_DATE"};
+        int[] ids = {R.id.tvPostTitle, R.id.tvPostDescription, R.id.tvPostDate};
+
+        adapter = new SimpleCursorAdapter(this, R.layout.list_posts, cursor, campos, ids);
+        listViewFound.setAdapter(adapter);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addPost = new Intent(HelpFound.this, CreatePost.class);
+                addPost.putExtra("idUserLogin", idUserLogin + "");
+                startActivity(addPost);
+            }
+        });
     }
 
     @Override
@@ -52,18 +91,22 @@ public class HelpFound extends AppCompatActivity
 
         if (id == R.id.navLost) {
             Intent helpLost = new Intent(getApplicationContext(), HelpLost.class);
+            helpLost.putExtra("idUserLogin", idUserLogin + "");
             startActivity(helpLost);
 
         } else if (id == R.id.navFound) {
             Intent helpFound = new Intent(getApplicationContext(), HelpFound.class);
+            helpFound.putExtra("idUserLogin", idUserLogin + "");
             startActivity(helpFound);
 
         } else if (id == R.id.navInteresPoints) {
             Intent interesPoints = new Intent(getApplicationContext(), InteresPoints.class);
+            interesPoints.putExtra("idUserLogin", idUserLogin + "");
             startActivity(interesPoints);
 
         } else if (id == R.id.navProfile) {
             Intent showProfile = new Intent(getApplicationContext(), ShowProfile.class);
+            showProfile.putExtra("idUserLogin", idUserLogin + "");
             startActivity(showProfile);
 
         } else if (id == R.id.navLogOut) {

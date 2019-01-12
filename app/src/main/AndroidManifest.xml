@@ -51,7 +51,8 @@
 
         <activity
             android:name=".InteresPoints"
-            android:label="@string/title_activity_interes_points"></activity>
+            android:label="@string/title_activity_interes_points" />
+        <activity android:name=".CreatePost"></activity>
     </application>
 
 </manifest>

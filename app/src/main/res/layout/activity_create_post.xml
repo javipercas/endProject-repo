@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangePassword">
+    tools:context=".CreatePost">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,109 +20,100 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteX="49dp"
-                tools:layout_editor_absoluteY="8dp"><![CDATA[
-
-
-
-
-
-                />
-
-
-
-
-
-                ]]>
+                tools:layout_editor_absoluteY="8dp">
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="80dp"
-                    android:text="Nombre de usuario"
+                    android:includeFontPadding="false"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="20dp"
+                    android:text="EDITAR PERFIL"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dog" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="40dp"
+                    android:text="Titulo"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etChangeUsername"
+                    android:id="@+id/etPostTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/common_google_signin_btn_text_dark_default"
-                    android:editable="false"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
                     android:textColorLink="@color/colorAccent" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Contraseña actual"
+                    android:text="Descripción"
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/etChangeActualPassword"
+                    android:id="@+id/etPostDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/common_google_signin_btn_text_dark_default"
-                    android:editable="false"
+                    android:layout_height="147dp"
+                    android:background="@android:color/white"
                     android:ems="10"
-                    android:inputType="textPassword"
+                    android:inputType="textPersonName"
                     android:padding="5dp"
                     android:textColorLink="@color/colorAccent" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Nueva contraseña"
+                    android:text="Descripción"
                     android:textColor="@android:color/black" />
 
-                <EditText
-                    android:id="@+id/etChangeNewPassword"
+                <Spinner
+                    android:id="@+id/spType"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/common_google_signin_btn_text_dark_default"
-                    android:editable="false"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:padding="5dp"
-                    android:textColorLink="@color/colorAccent" />
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="20dp"
-                    android:text="Repetir nueva contraseña"
-                    android:textColor="@android:color/black" />
-
-                <EditText
-                    android:id="@+id/etChangeRepeatNewPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/common_google_signin_btn_text_dark_default"
-                    android:editable="false"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:padding="5dp"
-                    android:textColorLink="@color/colorAccent" />
+                    android:layout_height="34dp" />
 
                 <Button
-                    android:id="@+id/btChangePassword"
+                    android:id="@+id/btPostSave"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="55dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/appColorPrimary"
+                    android:text="Actualizar"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btPostCancel"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="40dp"
                     android:background="@color/appColorPrimary"
-                    android:text="Cambiar contraseña"
+                    android:text="Actualizar"
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

@@ -93,6 +93,15 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO USERS (USERNAME, PASSWORD, EMAIL) VALUES ('admin', '12345', 'admin@javipercas.com')");
         db.execSQL("INSERT INTO USERS_PROFILE (NAME, SECOND_NAME, CITY, PHONE, USER_ID) VALUES ('Cuenta', 'De Pruebas', 'Barcelona', 666777888, 1)");
         db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Barcelona..', '2019-01-15 09:10:08', 1, 0, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro encontrado!', 'Perdido por Mataró..', '2019-01-15 09:10:08', 1, 1, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro encontrado!', 'Perdido por Badalona..', '2019-01-15 09:10:08', 1, 1, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Sant Cugat del vallés..', '2019-01-15 09:10:08', 1, 0, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Sagrada Familia..', '2019-01-15 09:10:08', 1, 0, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Terrassa..', '2019-01-15 09:10:08', 1, 0, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro encontrado!', 'Perdido por Sabadell..', '2019-01-15 09:10:08', 1, 1, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Rubí..', '2019-01-15 09:10:08', 1, 0, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Viladecans..', '2019-01-15 09:10:08', 1, 0, 1)");
+        db.execSQL("INSERT INTO POSTS (TITLE, DESCRIPTION, CREATE_DATE, VISIBLE, TYPE, USER_ID) VALUES ('Perro perdido!', 'Perdido por Sitges..', '2019-01-15 09:10:08', 1, 0, 1)");
 
     }
 
