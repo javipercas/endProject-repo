@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import com.example.javipercas.endprojectifp.Utils.DataBase;
 import com.example.javipercas.endprojectifp.Utils.Utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class CreatePost extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText etTitle, etDescription;
@@ -92,6 +95,7 @@ public class CreatePost extends AppCompatActivity implements AdapterView.OnItemS
         ContentValues contentValues = new ContentValues();
         contentValues.put(Utils.Posts.POSTS_TITLE, title);
         contentValues.put(Utils.Posts.POSTS_DESCRIPTION, description);
+        contentValues.put(Utils.Posts.POSTS_CREATE_DATE, String.valueOf(new SimpleDateFormat("yyyy-MM-dd").format(new Date())));
         contentValues.put(Utils.Posts.POSTS_VISIBLE, 1);
         contentValues.put(Utils.Posts.POSTS_TYPE, type);
         contentValues.put(Utils.Posts.POSTS_USER_ID, userId);

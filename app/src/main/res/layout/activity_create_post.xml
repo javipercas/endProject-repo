@@ -110,7 +110,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="40dp"
                     android:background="@color/appColorPrimary"
-                    android:text="Actualizar"
+                    android:text="Cancelar"
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
