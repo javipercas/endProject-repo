@@ -6,4 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".CreatePets">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="287dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="49dp"
+                tools:layout_editor_absoluteY="8dp">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="40dp"
+                    android:text="Nombre de la mascota"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/etPetName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/common_google_signin_btn_text_dark_default"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textColorLink="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Edad"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/etPetAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp"
+                    android:textColorLink="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Sexo"
+                    android:textColor="@android:color/black" />
+
+                <Spinner
+                    android:id="@+id/spSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp" />
+
+                <TextView
+                    android:id="@+id/esterilizado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Esterelizado"
+                    android:textColor="@android:color/black" />
+
+                <Spinner
+                    android:id="@+id/spSterilized"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Raza"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/etPetRace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Color"
+                    android:textColor="@android:color/black"
+                    android:textColorLink="@color/appColorPrimary" />
+
+                <EditText
+                    android:id="@+id/etPetColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:text="Carácter"
+                    android:textColor="@android:color/black"
+                    android:textColorLink="@color/appColorPrimary" />
+
+                <EditText
+                    android:id="@+id/etPetCharacter"
+                    android:layout_width="match_parent"
+                    android:layout_height="97dp"
+                    android:background="@android:color/white"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="5dp" />
+
+                <Button
+                    android:id="@+id/btAddPet"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/appColorPrimary"
+                    android:text="Agregar"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btPetCancel"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@color/appColorPrimary"
+                    android:text="Agregar"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

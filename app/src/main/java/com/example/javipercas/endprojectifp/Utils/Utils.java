@@ -25,7 +25,7 @@ public class Utils {
 
     //Constantes columnas tabla pets
     interface columnsPets {
-        public static final String PETS_ID = "ID";
+        public static final String PETS_ID = "_id";
         public static final String PETS_NAME = "NAME";
         public static final String PETS_AGE = "AGE";
         public static final String PETS_SEX = "SEX";

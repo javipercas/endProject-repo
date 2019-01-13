@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="40dp"
-                    android:text="Nombre de usuario*"
+                    android:text="Nombre de usuario"
                     android:textColor="@android:color/black" />
 
                 <EditText
@@ -66,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Nombre*"
+                    android:text="Nombre"
                     android:textColor="@android:color/black" />
 
                 <EditText
@@ -84,7 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Apellidos*"
+                    android:text="Apellidos"
                     android:textColor="@android:color/black" />
 
                 <EditText
@@ -101,7 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Población*"
+                    android:text="Población"
                     android:textColor="@android:color/black" />
 
                 <EditText
@@ -118,7 +118,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Correo electrónico*"
+                    android:text="Correo electrónico"
                     android:textColor="@android:color/black" />
 
                 <EditText
@@ -135,7 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
-                    android:text="Teléfono*"
+                    android:text="Teléfono"
                     android:textColor="@android:color/black"
                     android:textColorLink="@color/appColorPrimary" />
 

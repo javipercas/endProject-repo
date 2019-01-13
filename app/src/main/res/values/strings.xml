@@ -15,4 +15,15 @@
         <item>Mascota perdida</item>
         <item>Mascota encontrada</item>
     </string-array>
+
+    <string-array name="Sterilizeded">
+        <item>NO</item>
+        <item>SI</item>
+    </string-array>
+
+    <string-array name="Sex">
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
+
 </resources>

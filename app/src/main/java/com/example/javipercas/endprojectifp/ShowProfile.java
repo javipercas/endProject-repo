@@ -7,17 +7,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import com.example.javipercas.endprojectifp.Utils.DataBase;
 
 public class ShowProfile extends AppCompatActivity {
 
-    EditText etUsername, etName, etSeccondName, etCity, etEmail, etPhone;
-    SQLiteDatabase db;
-    String idUser;
-    int idUserLogin;
+    private EditText etUsername, etName, etSeccondName, etCity, etEmail, etPhone;
+    private Button btAddPet;
+    private SQLiteDatabase db;
+    private ListView listViewPets;
+    private SimpleCursorAdapter adapter;
+    private String idUser;
+    private int idUserLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,26 @@ public class ShowProfile extends AppCompatActivity {
         etEmail = (EditText)findViewById(R.id.etShowEmail);
         etCity = (EditText)findViewById(R.id.etShowPoblacion);
         etPhone = (EditText)findViewById(R.id.etShowPhone);
+        btAddPet = (Button)findViewById(R.id.btAddPet);
+        listViewPets = (ListView)findViewById(R.id.listViewPets);
+
+
+        Cursor cursorList = db.rawQuery("SELECT _id, NAME, AGE, SEX, STERILIZED FROM PETS WHERE USER_ID = " + idUserLogin, null);
+
+        String[] campos = {"NAME", "AGE", "SEX", "STERILIZED"};
+        int[] ids = {R.id.tvCreateName, R.id.tvCreateAge, R.id.tvCreateSex, R.id.tvCreateSterilized};
+
+        adapter = new SimpleCursorAdapter(this, R.layout.list_pets, cursorList, campos, ids);
+        listViewPets.setAdapter(adapter);
+
+        listViewPets.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) { {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    return false;
+                }
+            }
+        });
 
         etUsername.setFocusable(false);
         etName.setFocusable(false);
@@ -72,6 +100,15 @@ public class ShowProfile extends AppCompatActivity {
             Toast.makeText(ShowProfile.this, "No se han encontrado los datos del perfil", Toast.LENGTH_SHORT).show();
 
         }
+
+        btAddPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addPet = new Intent(getApplicationContext(), CreatePets.class);
+                addPet.putExtra("idUserLogin", idUserLogin + "");
+                startActivity(addPet);
+            }
+        });
     }
 
     @Override

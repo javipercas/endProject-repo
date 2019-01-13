@@ -3,11 +3,13 @@ package com.example.javipercas.endprojectifp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.javipercas.endprojectifp.Utils.DataBase;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btSignIn, btLogin;
     private EditText etUsername, etPassword;
+    private TextView tvRecover;
     private Cursor query;
     private SQLiteDatabase db;
 
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btLogin = (Button) findViewById(R.id.btLogin);
         etPassword = (EditText) findViewById(R.id.etMainPassword);
         etUsername = (EditText) findViewById(R.id.etMainUsername);
+        tvRecover = (TextView)findViewById(R.id.tvRecover);
 
         btSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +81,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        tvRecover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Servicio en desarrollo", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
+            }
+        });
     }
+
+    //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+    //                        .setAction("Action", null).show();
 
     private int findByUsername(String username) {
 
